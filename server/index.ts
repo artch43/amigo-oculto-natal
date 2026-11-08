@@ -4,8 +4,10 @@ const app = express();
 app.use(express.json());
 app.use(express.static("public"));
 
-app.listen(3000, () =>
-    console.log("Rodando na porta 3000"));
+// A hospedagem informa a porta em PORT; no seu computador continua 3000.
+const PORT = Number(process.env.PORT ?? 3000);
+app.listen(PORT, () =>
+    console.log(`Rodando na porta ${PORT}`));
 
 
 app.get("/api/members", (req,res) => {

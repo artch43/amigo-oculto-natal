@@ -1,5 +1,6 @@
 import { DatabaseSync } from "node:sqlite";
-export const db = new DatabaseSync("amigo-oculto.db");
+// Em produção (Railway) o arquivo fica no volume: DB_PATH=/data/amigo-oculto.db
+export const db = new DatabaseSync(process.env.DB_PATH ?? "amigo-oculto.db");
 db.exec("PRAGMA foreign_keys = ON");
 
 export type Gift = {

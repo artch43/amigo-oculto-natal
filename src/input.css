@@ -1,0 +1,62 @@
+@import "tailwindcss";
+@source "../public";
+
+/* Paleta e fontes do protótipo do Figma (60% vermelho / 30% verde / 10% branco) */
+@theme {
+  --color-natal-red: #C8102E;
+  --color-natal-red-dark: #8E0B20;
+  --color-natal-green: #1F5F3A;
+  --color-natal-green-dark: #123D25;
+  --color-natal-gold: #E0A526;
+  --color-natal-cream: #FBF6EE;
+  --color-natal-ink: #2B1D16;
+  --color-natal-muted: #7A6A5E;
+
+  --font-display: "Fraunces", Georgia, serif;
+  --font-script: "Mountains of Christmas", "Fraunces", serif;
+  --font-sans: "Nunito", system-ui, sans-serif;
+
+  --animate-bob: bob 5s ease-in-out infinite;
+  --animate-fall: fall linear infinite;
+
+  @keyframes bob {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-8px) rotate(-1.5deg); }
+  }
+  @keyframes fall {
+    from { transform: translate3d(0, -10vh, 0); }
+    to { transform: translate3d(var(--drift, 20px), 110vh, 0); }
+  }
+}
+
+@layer base {
+  html { -webkit-tap-highlight-color: transparent; }
+  body { overscroll-behavior-y: none; }
+  dialog::backdrop { background: rgb(51 5 15 / 0.72); }
+  /* Trava a rolagem da página enquanto a lista está aberta */
+  html:has(dialog[open]) { overflow: hidden; }
+}
+
+@layer components {
+  /* Bandeirinhas do topo */
+  .bunting {
+    height: 44px;
+    background-image: url("bunting.svg");
+    background-repeat: repeat-x;
+    background-size: 192px 44px;
+  }
+  /* Faixa listrada (bengala doce) no topo da janela */
+  .candy-stripe {
+    height: 10px;
+    background: repeating-linear-gradient(-45deg, #1F5F3A 0 10px, #fff 10px 20px);
+  }
+  .field {
+    @apply w-full rounded-xl bg-white px-3.5 py-3 text-base text-natal-ink placeholder:text-natal-muted
+      outline-none ring-natal-gold focus-visible:ring-4;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .snow { display: none; }
+  .animate-bob { animation: none; }
+}

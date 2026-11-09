@@ -41,7 +41,7 @@ db.exec(`
 const FAMILY = [{name: "Vovó Marlene", photo: "fotos/marlene.jpg"}, {name: "Isabel", photo: "fotos/isabel.jpg"}
     , {name: "Laura", photo: "fotos/laura.jpg"}, {name: "Luísa", photo: "fotos/luisa.jpg"}, {name: "Arthur", photo: "fotos/arthur.jpg"}, {name: "Alexandre", photo: "fotos/alexandre.jpg"}
     , {name: "Patrícia", photo: "fotos/patricia.jpg"}, {name: "Gian", photo: "fotos/gian.jpg"}, {name: "Adriana", photo: "fotos/adriana.jpg"}
-    , {name: "Nina", photo: "fotos/nina.jpg"}
+    , {name: "Nina", photo: "fotos/nina.jpg"}, {name: "João", photo: "fotos/joao.jpg"}
 ]
 
 const insert = db.prepare("INSERT INTO members (name,photo) VALUES (? , ?)");

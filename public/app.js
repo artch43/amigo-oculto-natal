@@ -408,19 +408,22 @@ async function removeGift(gift) {
 // ------------------------------------------------------------
 function makeSnow() {
   const box = $("#snow");
-  const count = window.innerWidth < 640 ? 18 : 36;
+  const count = window.innerWidth < 640 ? 40 : 80;
   for (let i = 0; i < count; i++) {
-    const size = 3 + Math.random() * 5;
+    // Flocos maiores caem mais rápido e mais "perto"; os pequenos ficam ao fundo.
+    const size = 2 + Math.random() ** 2 * 6;
+    const near = size > 5;
     const flake = h("span", {
       class: "animate-fall absolute top-0 rounded-full bg-white",
       style: [
         `left:${Math.random() * 100}%`,
         `width:${size}px`,
         `height:${size}px`,
-        `opacity:${0.25 + Math.random() * 0.45}`,
-        `animation-duration:${9 + Math.random() * 12}s`,
+        `opacity:${0.45 + Math.random() * 0.5}`,
+        `animation-duration:${(near ? 7 : 11) + Math.random() * 10}s`,
         `animation-delay:-${Math.random() * 20}s`,
-        `--drift:${-40 + Math.random() * 80}px`,
+        `--drift:${-60 + Math.random() * 120}px`,
+        near ? "box-shadow:0 0 6px 1px rgb(255 255 255 / .55)" : "",
       ].join(";"),
     });
     box.append(flake);

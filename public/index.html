@@ -12,9 +12,10 @@
   <link rel="stylesheet" href="styles.css" />
   <script src="app.js" defer></script>
 </head>
-<body class="min-h-dvh overflow-x-hidden bg-natal-red font-sans text-white antialiased">
-  <!-- Neve caindo (criada pelo app.js; some com "reduzir movimento") -->
-  <div id="snow" class="snow pointer-events-none fixed inset-0 z-0 overflow-hidden" aria-hidden="true"></div>
+<body class="min-h-dvh overflow-x-hidden bg-natal-red-dark font-sans text-white antialiased">
+  <div class="pearl-bg" aria-hidden="true"></div>
+  <!-- Neve caindo POR CIMA do site (criada pelo app.js; não bloqueia cliques; some com "reduzir movimento") -->
+  <div id="snow" class="snow pointer-events-none fixed inset-0 z-20 overflow-hidden" aria-hidden="true"></div>
 
   <div class="bunting relative z-10" aria-hidden="true"></div>
 
